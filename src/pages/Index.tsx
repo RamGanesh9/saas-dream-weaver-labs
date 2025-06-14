@@ -49,55 +49,55 @@ const Index = () => {
       name: "Street Legends",
       description: "Urban streetwear for the modern rebel",
       image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop",
-      color: "from-purple-600 to-pink-600"
+      color: "from-emerald-600 to-teal-600"
     },
     {
       name: "Divine Casual",
       description: "Comfortable everyday wear with divine style",
       image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&h=400&fit=crop",
-      color: "from-blue-600 to-cyan-600"
+      color: "from-blue-600 to-indigo-600"
     },
     {
       name: "Thunder Collection",
       description: "Bold designs that make a statement",
       image: "https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?w=600&h=400&fit=crop",
-      color: "from-orange-600 to-red-600"
+      color: "from-amber-600 to-orange-600"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-emerald-50 to-teal-50">
       {/* Navigation */}
       <nav className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
+              <div className="w-10 h-10 bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
                 <Zap className="h-6 w-6 text-white" />
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600 bg-clip-text text-transparent">
                 THE GODS
               </span>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/shop" className="text-slate-700 hover:text-purple-600 font-medium transition-colors">
+              <Link to="/shop" className="text-slate-700 hover:text-emerald-600 font-medium transition-colors">
                 Shop
               </Link>
-              <Link to="/collections" className="text-slate-700 hover:text-purple-600 font-medium transition-colors">
+              <Link to="/collections" className="text-slate-700 hover:text-emerald-600 font-medium transition-colors">
                 Collections
               </Link>
-              <Link to="/about" className="text-slate-700 hover:text-purple-600 font-medium transition-colors">
+              <Link to="/about" className="text-slate-700 hover:text-emerald-600 font-medium transition-colors">
                 About
               </Link>
-              <Link to="/contact" className="text-slate-700 hover:text-purple-600 font-medium transition-colors">
+              <Link to="/contact" className="text-slate-700 hover:text-emerald-600 font-medium transition-colors">
                 Contact
               </Link>
               <Button
                 onClick={() => navigate('/cart')}
                 variant="outline"
-                className="border-purple-300 text-purple-600 hover:bg-purple-50"
+                className="border-emerald-300 text-emerald-600 hover:bg-emerald-50"
               >
                 <ShoppingBag className="h-4 w-4 mr-2" />
                 Cart (0)
@@ -119,22 +119,22 @@ const Index = () => {
           {isMenuOpen && (
             <div className="md:hidden py-4 border-t border-slate-200">
               <div className="flex flex-col space-y-4">
-                <Link to="/shop" className="text-slate-700 hover:text-purple-600 font-medium">
+                <Link to="/shop" className="text-slate-700 hover:text-emerald-600 font-medium">
                   Shop
                 </Link>
-                <Link to="/collections" className="text-slate-700 hover:text-purple-600 font-medium">
+                <Link to="/collections" className="text-slate-700 hover:text-emerald-600 font-medium">
                   Collections
                 </Link>
-                <Link to="/about" className="text-slate-700 hover:text-purple-600 font-medium">
+                <Link to="/about" className="text-slate-700 hover:text-emerald-600 font-medium">
                   About
                 </Link>
-                <Link to="/contact" className="text-slate-700 hover:text-purple-600 font-medium">
+                <Link to="/contact" className="text-slate-700 hover:text-emerald-600 font-medium">
                   Contact
                 </Link>
                 <Button
                   onClick={() => navigate('/cart')}
                   variant="outline"
-                  className="border-purple-300 text-purple-600 hover:bg-purple-50 w-fit"
+                  className="border-emerald-300 text-emerald-600 hover:bg-emerald-50 w-fit"
                 >
                   <ShoppingBag className="h-4 w-4 mr-2" />
                   Cart (0)
@@ -147,15 +147,15 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-pink-900/20 to-orange-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/30 via-teal-900/30 to-blue-900/30"></div>
         <div 
           className="relative h-screen flex items-center justify-center bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&h=1080&fit=crop')"
+            backgroundImage: "url('https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?w=1920&h=1080&fit=crop')"
           }}
         >
           <div className="text-center text-white z-10 px-4">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-emerald-400 via-teal-400 to-blue-400 bg-clip-text text-transparent">
               THE GODS
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-slate-200 max-w-2xl mx-auto">
@@ -164,7 +164,7 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-xl"
+                className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-xl"
                 onClick={() => navigate('/shop')}
               >
                 Shop Collection
@@ -187,9 +187,9 @@ const Index = () => {
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center p-6 border-0 shadow-xl bg-gradient-to-br from-purple-50 to-pink-50">
+            <Card className="text-center p-6 border-0 shadow-xl bg-gradient-to-br from-emerald-50 to-teal-50">
               <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Zap className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">No Tags Policy</h3>
@@ -197,9 +197,9 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 border-0 shadow-xl bg-gradient-to-br from-blue-50 to-cyan-50">
+            <Card className="text-center p-6 border-0 shadow-xl bg-gradient-to-br from-blue-50 to-indigo-50">
               <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Star className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">Trendy Designs</h3>
@@ -207,9 +207,9 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 border-0 shadow-xl bg-gradient-to-br from-orange-50 to-red-50">
+            <Card className="text-center p-6 border-0 shadow-xl bg-gradient-to-br from-amber-50 to-orange-50">
               <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-600 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-amber-600 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Shield className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">Premium Quality</h3>
@@ -238,7 +238,7 @@ const Index = () => {
                     className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   {product.isNew && (
-                    <div className="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="absolute top-4 left-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                       New
                     </div>
                   )}
@@ -249,11 +249,11 @@ const Index = () => {
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="font-bold text-slate-800 mb-2 group-hover:text-purple-600 transition-colors">
+                  <h3 className="font-bold text-slate-800 mb-2 group-hover:text-emerald-600 transition-colors">
                     {product.name}
                   </h3>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-purple-600">${product.price}</span>
+                    <span className="text-2xl font-bold text-emerald-600">${product.price}</span>
                     <div className="flex items-center">
                       <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                       <span className="ml-1 text-sm text-slate-600">{product.rating}</span>
@@ -267,7 +267,7 @@ const Index = () => {
           <div className="text-center mt-12">
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+              className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700"
               onClick={() => navigate('/shop')}
             >
               View All Products
@@ -277,7 +277,7 @@ const Index = () => {
       </section>
 
       {/* Collections Showcase */}
-      <section className="py-16 px-4 bg-gradient-to-br from-slate-50 to-purple-50">
+      <section className="py-16 px-4 bg-gradient-to-br from-slate-50 to-emerald-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-slate-800 mb-4">Divine Collections</h2>
@@ -308,7 +308,7 @@ const Index = () => {
       </section>
 
       {/* Newsletter */}
-      <section className="py-16 px-4 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600">
+      <section className="py-16 px-4 bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600">
         <div className="max-w-4xl mx-auto text-center text-white">
           <h2 className="text-4xl font-bold mb-4">Join the Divine Community</h2>
           <p className="text-xl mb-8 opacity-90">
@@ -320,7 +320,7 @@ const Index = () => {
               placeholder="Enter your email"
               className="flex-1 px-4 py-3 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-white"
             />
-            <Button className="bg-white text-purple-600 hover:bg-slate-100 px-8">
+            <Button className="bg-white text-emerald-600 hover:bg-slate-100 px-8">
               Subscribe
             </Button>
           </div>
@@ -333,7 +333,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-lg flex items-center justify-center">
                   <Zap className="h-5 w-5 text-white" />
                 </div>
                 <span className="text-xl font-bold">THE GODS</span>

@@ -1,10 +1,9 @@
-
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ShoppingBag, Star, Heart, Share2, Zap, ArrowLeft, Plus, Minus, Truck, Shield, RotateCcw } from "lucide-react";
+import { Label } from "@/components/ui/label";
+import { ShoppingBag, Star, Heart, Share2, Truck, Shield, ArrowLeft, Plus, Minus, Zap } from "lucide-react";
 
 const Product = () => {
   const [selectedSize, setSelectedSize] = useState('M');

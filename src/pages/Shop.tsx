@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -110,17 +109,17 @@ const Shop = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-emerald-50 to-teal-50">
       {/* Navigation */}
       <nav className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
               <Link to="/" className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
+                <div className="w-10 h-10 bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
                   <Zap className="h-6 w-6 text-white" />
                 </div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent">
+                <span className="text-2xl font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600 bg-clip-text text-transparent">
                   THE GODS
                 </span>
               </Link>
@@ -130,14 +129,14 @@ const Shop = () => {
               <Button
                 onClick={() => window.history.back()}
                 variant="ghost"
-                className="text-slate-600 hover:text-purple-600"
+                className="text-slate-600 hover:text-emerald-600"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back
               </Button>
               <Button
                 variant="outline"
-                className="border-purple-300 text-purple-600 hover:bg-purple-50"
+                className="border-emerald-300 text-emerald-600 hover:bg-emerald-50"
               >
                 <ShoppingBag className="h-4 w-4 mr-2" />
                 Cart (0)
@@ -162,7 +161,7 @@ const Shop = () => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-4 w-4" />
               <Input 
                 placeholder="Search products..." 
-                className="pl-10 border-slate-300 focus:border-purple-500"
+                className="pl-10 border-slate-300 focus:border-emerald-500"
               />
             </div>
 
@@ -172,7 +171,7 @@ const Shop = () => {
               <select 
                 value={filterCategory}
                 onChange={(e) => setFilterCategory(e.target.value)}
-                className="px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
               >
                 {categories.map(category => (
                   <option key={category.id} value={category.id}>{category.name}</option>
@@ -186,7 +185,7 @@ const Shop = () => {
               <select 
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
               >
                 <option value="featured">Featured</option>
                 <option value="price-low">Price: Low to High</option>
@@ -202,7 +201,7 @@ const Shop = () => {
                 variant={viewMode === 'grid' ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setViewMode('grid')}
-                className="bg-purple-600 hover:bg-purple-700"
+                className="bg-emerald-600 hover:bg-emerald-700"
               >
                 <Grid className="h-4 w-4" />
               </Button>
@@ -210,7 +209,7 @@ const Shop = () => {
                 variant={viewMode === 'list' ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setViewMode('list')}
-                className="bg-purple-600 hover:bg-purple-700"
+                className="bg-emerald-600 hover:bg-emerald-700"
               >
                 <List className="h-4 w-4" />
               </Button>
@@ -238,12 +237,12 @@ const Shop = () => {
                 {/* Badges */}
                 <div className="absolute top-4 left-4 flex flex-col gap-2">
                   {product.isNew && (
-                    <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                       New
                     </div>
                   )}
                   {product.isOnSale && (
-                    <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                       Sale
                     </div>
                   )}
@@ -255,7 +254,7 @@ const Shop = () => {
                     <Button size="sm" className="bg-white text-slate-900 hover:bg-slate-100">
                       Quick View
                     </Button>
-                    <Button size="sm" className="bg-purple-600 hover:bg-purple-700">
+                    <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700">
                       <ShoppingBag className="h-4 w-4" />
                     </Button>
                   </div>
@@ -263,7 +262,7 @@ const Shop = () => {
               </div>
 
               <CardContent className="p-6">
-                <h3 className="font-bold text-slate-800 mb-2 group-hover:text-purple-600 transition-colors">
+                <h3 className="font-bold text-slate-800 mb-2 group-hover:text-emerald-600 transition-colors">
                   {product.name}
                 </h3>
                 
@@ -277,7 +276,7 @@ const Shop = () => {
 
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl font-bold text-purple-600">${product.price}</span>
+                    <span className="text-2xl font-bold text-emerald-600">${product.price}</span>
                     {product.originalPrice && (
                       <span className="text-sm text-slate-500 line-through">${product.originalPrice}</span>
                     )}
@@ -307,7 +306,7 @@ const Shop = () => {
                   </div>
                 </div>
 
-                <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700">
+                <Button className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700">
                   Add to Cart
                 </Button>
               </CardContent>
@@ -320,7 +319,7 @@ const Shop = () => {
           <Button 
             size="lg" 
             variant="outline"
-            className="border-purple-300 text-purple-600 hover:bg-purple-50"
+            className="border-emerald-300 text-emerald-600 hover:bg-emerald-50"
           >
             Load More Products
           </Button>
