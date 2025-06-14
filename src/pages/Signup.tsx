@@ -6,13 +6,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { ArrowLeft, Mail, Lock, User } from "lucide-react";
+import { ArrowLeft, Mail, Lock, User, School, GraduationCap } from "lucide-react";
 import { toast } from "sonner";
 
 const Signup = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: "",
+    schoolName: "",
+    adminName: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -36,14 +37,14 @@ const Signup = () => {
     
     // Simulate API call
     setTimeout(() => {
-      toast.success("Account created successfully!");
+      toast.success("Welcome to EduFlow! Your free trial has started.");
       navigate('/dashboard');
       setIsLoading(false);
     }, 1500);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Back button */}
         <Button 
@@ -58,40 +59,58 @@ const Signup = () => {
         <Card className="shadow-lg border-0">
           <CardHeader className="text-center">
             <div className="flex items-center justify-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg"></div>
-              <span className="text-xl font-bold text-slate-900">TaskFlow</span>
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+                <GraduationCap className="h-6 w-6 text-white" />
+              </div>
+              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">EduFlow</span>
             </div>
-            <CardTitle className="text-2xl">Create your account</CardTitle>
+            <CardTitle className="text-2xl">Start Your Free Trial</CardTitle>
             <CardDescription>
-              Join thousands of teams using TaskFlow
+              Set up your school management system in minutes
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="name">Full name</Label>
+                <Label htmlFor="schoolName">School Name</Label>
+                <div className="relative">
+                  <School className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
+                  <Input
+                    id="schoolName"
+                    type="text"
+                    placeholder="Springfield High School"
+                    className="pl-10"
+                    value={formData.schoolName}
+                    onChange={(e) => setFormData({ ...formData, schoolName: e.target.value })}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="adminName">Administrator Name</Label>
                 <div className="relative">
                   <User className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
                   <Input
-                    id="name"
+                    id="adminName"
                     type="text"
                     placeholder="Enter your full name"
                     className="pl-10"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    value={formData.adminName}
+                    onChange={(e) => setFormData({ ...formData, adminName: e.target.value })}
                     required
                   />
                 </div>
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">School Email</Label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
                   <Input
                     id="email"
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="admin@yourschool.edu"
                     className="pl-10"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -107,7 +126,7 @@ const Signup = () => {
                   <Input
                     id="password"
                     type="password"
-                    placeholder="Create a password"
+                    placeholder="Create a secure password"
                     className="pl-10"
                     value={formData.password}
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
@@ -117,7 +136,7 @@ const Signup = () => {
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="confirmPassword">Confirm password</Label>
+                <Label htmlFor="confirmPassword">Confirm Password</Label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
                   <Input
@@ -134,10 +153,10 @@ const Signup = () => {
               
               <Button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
                 disabled={isLoading}
               >
-                {isLoading ? "Creating account..." : "Create account"}
+                {isLoading ? "Setting up your school..." : "Start 14-Day Free Trial"}
               </Button>
             </form>
             
@@ -152,6 +171,19 @@ const Signup = () => {
                 </p>
               </div>
             </div>
+          </CardContent>
+        </Card>
+
+        {/* Features highlight */}
+        <Card className="mt-4 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+          <CardContent className="pt-4">
+            <p className="text-sm font-medium text-slate-700 mb-2">What's included in your free trial:</p>
+            <ul className="text-xs text-slate-600 space-y-1">
+              <li>✓ Full access to all features for 14 days</li>
+              <li>✓ Add up to 100 students and 10 teachers</li>
+              <li>✓ Complete setup assistance</li>
+              <li>✓ No credit card required</li>
+            </ul>
           </CardContent>
         </Card>
       </div>

@@ -8,27 +8,53 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ArrowLeft, User, Bell, Shield, CreditCard, Trash2 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { 
+  ArrowLeft, 
+  User, 
+  Bell, 
+  Shield, 
+  CreditCard, 
+  Trash2, 
+  GraduationCap,
+  School,
+  Users,
+  Settings as SettingsIcon
+} from "lucide-react";
 import { toast } from "sonner";
 
 const Settings = () => {
   const navigate = useNavigate();
-  const [profileData, setProfileData] = useState({
-    name: "John Doe",
-    email: "john@example.com",
-    company: "Acme Corp",
-    role: "Product Manager"
+  const [schoolData, setSchoolData] = useState({
+    name: "Springfield High School",
+    address: "123 Education Street, Springfield, IL 62701",
+    phone: "+1 (555) 123-4567",
+    email: "admin@springfield.edu",
+    website: "www.springfield.edu"
+  });
+
+  const [adminData, setAdminData] = useState({
+    name: "John Smith",
+    email: "john.smith@springfield.edu",
+    role: "Principal",
+    phone: "+1 (555) 987-6543"
   });
   
   const [notifications, setNotifications] = useState({
-    emailUpdates: true,
-    pushNotifications: false,
-    weeklyReports: true,
-    taskReminders: true
+    emailNotifications: true,
+    smsNotifications: false,
+    parentPortalUpdates: true,
+    attendanceAlerts: true,
+    gradeUpdates: true,
+    feeReminders: true
   });
 
-  const handleSaveProfile = () => {
-    toast.success("Profile updated successfully!");
+  const handleSaveSchool = () => {
+    toast.success("School information updated successfully!");
+  };
+
+  const handleSaveAdmin = () => {
+    toast.success("Administrator profile updated successfully!");
   };
 
   const handleSaveNotifications = () => {
@@ -46,37 +72,106 @@ const Settings = () => {
               Back to Dashboard
             </Button>
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg"></div>
-              <span className="text-xl font-bold text-slate-900">TaskFlow Settings</span>
+              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                <GraduationCap className="h-5 w-5 text-white" />
+              </div>
+              <span className="text-xl font-bold text-slate-900">EduFlow Settings</span>
             </div>
           </div>
         </div>
       </header>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold text-slate-900 mb-8">Account Settings</h1>
+        <div className="flex items-center justify-between mb-8">
+          <h1 className="text-3xl font-bold text-slate-900">School Settings</h1>
+          <Badge className="bg-blue-100 text-blue-700 border-blue-200">
+            Professional Plan
+          </Badge>
+        </div>
 
         <div className="space-y-6">
-          {/* Profile Settings */}
+          {/* School Information */}
+          <Card>
+            <CardHeader>
+              <div className="flex items-center space-x-2">
+                <School className="h-5 w-5 text-slate-600" />
+                <CardTitle>School Information</CardTitle>
+              </div>
+              <CardDescription>
+                Update your school's basic information and contact details.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="schoolName">School Name</Label>
+                  <Input
+                    id="schoolName"
+                    value={schoolData.name}
+                    onChange={(e) => setSchoolData({ ...schoolData, name: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="schoolEmail">School Email</Label>
+                  <Input
+                    id="schoolEmail"
+                    type="email"
+                    value={schoolData.email}
+                    onChange={(e) => setSchoolData({ ...schoolData, email: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2 md:col-span-2">
+                  <Label htmlFor="schoolAddress">Address</Label>
+                  <Input
+                    id="schoolAddress"
+                    value={schoolData.address}
+                    onChange={(e) => setSchoolData({ ...schoolData, address: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="schoolPhone">Phone</Label>
+                  <Input
+                    id="schoolPhone"
+                    value={schoolData.phone}
+                    onChange={(e) => setSchoolData({ ...schoolData, phone: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="schoolWebsite">Website</Label>
+                  <Input
+                    id="schoolWebsite"
+                    value={schoolData.website}
+                    onChange={(e) => setSchoolData({ ...schoolData, website: e.target.value })}
+                  />
+                </div>
+              </div>
+              
+              <Button onClick={handleSaveSchool}>
+                Save School Information
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* Administrator Profile */}
           <Card>
             <CardHeader>
               <div className="flex items-center space-x-2">
                 <User className="h-5 w-5 text-slate-600" />
-                <CardTitle>Profile Information</CardTitle>
+                <CardTitle>Administrator Profile</CardTitle>
               </div>
               <CardDescription>
-                Update your personal information and profile details.
+                Update your personal information and contact details.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="flex items-center space-x-4">
                 <Avatar className="h-20 w-20">
                   <AvatarImage src="/placeholder.svg" />
-                  <AvatarFallback className="text-lg">JD</AvatarFallback>
+                  <AvatarFallback className="text-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white">JS</AvatarFallback>
                 </Avatar>
                 <div>
                   <Button variant="outline" size="sm">
-                    Change Avatar
+                    Change Photo
                   </Button>
                   <p className="text-sm text-slate-500 mt-1">
                     JPG, PNG or GIF. Max size 2MB.
@@ -86,42 +181,42 @@ const Settings = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Full Name</Label>
+                  <Label htmlFor="adminName">Full Name</Label>
                   <Input
-                    id="name"
-                    value={profileData.name}
-                    onChange={(e) => setProfileData({ ...profileData, name: e.target.value })}
+                    id="adminName"
+                    value={adminData.name}
+                    onChange={(e) => setAdminData({ ...adminData, name: e.target.value })}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="adminEmail">Email</Label>
                   <Input
-                    id="email"
+                    id="adminEmail"
                     type="email"
-                    value={profileData.email}
-                    onChange={(e) => setProfileData({ ...profileData, email: e.target.value })}
+                    value={adminData.email}
+                    onChange={(e) => setAdminData({ ...adminData, email: e.target.value })}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="company">Company</Label>
+                  <Label htmlFor="adminRole">Role</Label>
                   <Input
-                    id="company"
-                    value={profileData.company}
-                    onChange={(e) => setProfileData({ ...profileData, company: e.target.value })}
+                    id="adminRole"
+                    value={adminData.role}
+                    onChange={(e) => setAdminData({ ...adminData, role: e.target.value })}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="role">Role</Label>
+                  <Label htmlFor="adminPhone">Phone</Label>
                   <Input
-                    id="role"
-                    value={profileData.role}
-                    onChange={(e) => setProfileData({ ...profileData, role: e.target.value })}
+                    id="adminPhone"
+                    value={adminData.phone}
+                    onChange={(e) => setAdminData({ ...adminData, phone: e.target.value })}
                   />
                 </div>
               </div>
               
-              <Button onClick={handleSaveProfile}>
-                Save Changes
+              <Button onClick={handleSaveAdmin}>
+                Save Profile Changes
               </Button>
             </CardContent>
           </Card>
@@ -131,22 +226,22 @@ const Settings = () => {
             <CardHeader>
               <div className="flex items-center space-x-2">
                 <Bell className="h-5 w-5 text-slate-600" />
-                <CardTitle>Notifications</CardTitle>
+                <CardTitle>Notification Preferences</CardTitle>
               </div>
               <CardDescription>
-                Manage your notification preferences and how you receive updates.
+                Manage how you receive updates and alerts from the system.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium">Email Updates</p>
-                    <p className="text-sm text-slate-500">Receive email notifications about your tasks and projects</p>
+                    <p className="font-medium">Email Notifications</p>
+                    <p className="text-sm text-slate-500">Receive general system notifications via email</p>
                   </div>
                   <Switch
-                    checked={notifications.emailUpdates}
-                    onCheckedChange={(checked) => setNotifications({ ...notifications, emailUpdates: checked })}
+                    checked={notifications.emailNotifications}
+                    onCheckedChange={(checked) => setNotifications({ ...notifications, emailNotifications: checked })}
                   />
                 </div>
                 
@@ -154,12 +249,12 @@ const Settings = () => {
                 
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium">Push Notifications</p>
-                    <p className="text-sm text-slate-500">Get push notifications on your mobile device</p>
+                    <p className="font-medium">SMS Notifications</p>
+                    <p className="text-sm text-slate-500">Get urgent alerts via text message</p>
                   </div>
                   <Switch
-                    checked={notifications.pushNotifications}
-                    onCheckedChange={(checked) => setNotifications({ ...notifications, pushNotifications: checked })}
+                    checked={notifications.smsNotifications}
+                    onCheckedChange={(checked) => setNotifications({ ...notifications, smsNotifications: checked })}
                   />
                 </div>
                 
@@ -167,12 +262,12 @@ const Settings = () => {
                 
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium">Weekly Reports</p>
-                    <p className="text-sm text-slate-500">Receive weekly summary reports of your team's progress</p>
+                    <p className="font-medium">Attendance Alerts</p>
+                    <p className="text-sm text-slate-500">Get notified about attendance issues</p>
                   </div>
                   <Switch
-                    checked={notifications.weeklyReports}
-                    onCheckedChange={(checked) => setNotifications({ ...notifications, weeklyReports: checked })}
+                    checked={notifications.attendanceAlerts}
+                    onCheckedChange={(checked) => setNotifications({ ...notifications, attendanceAlerts: checked })}
                   />
                 </div>
                 
@@ -180,19 +275,72 @@ const Settings = () => {
                 
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium">Task Reminders</p>
-                    <p className="text-sm text-slate-500">Get reminded about upcoming task deadlines</p>
+                    <p className="font-medium">Grade Updates</p>
+                    <p className="text-sm text-slate-500">Notifications when grades are updated</p>
                   </div>
                   <Switch
-                    checked={notifications.taskReminders}
-                    onCheckedChange={(checked) => setNotifications({ ...notifications, taskReminders: checked })}
+                    checked={notifications.gradeUpdates}
+                    onCheckedChange={(checked) => setNotifications({ ...notifications, gradeUpdates: checked })}
+                  />
+                </div>
+
+                <Separator />
+                
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-medium">Fee Reminders</p>
+                    <p className="text-sm text-slate-500">Automatic reminders for fee payments</p>
+                  </div>
+                  <Switch
+                    checked={notifications.feeReminders}
+                    onCheckedChange={(checked) => setNotifications({ ...notifications, feeReminders: checked })}
                   />
                 </div>
               </div>
               
               <Button onClick={handleSaveNotifications}>
-                Save Preferences
+                Save Notification Preferences
               </Button>
+            </CardContent>
+          </Card>
+
+          {/* User Management */}
+          <Card>
+            <CardHeader>
+              <div className="flex items-center space-x-2">
+                <Users className="h-5 w-5 text-slate-600" />
+                <CardTitle>User Management</CardTitle>
+              </div>
+              <CardDescription>
+                Manage users and permissions for your school.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="text-center p-4 bg-blue-50 rounded-lg">
+                  <div className="text-2xl font-bold text-blue-600">84</div>
+                  <div className="text-sm text-blue-700">Teachers</div>
+                </div>
+                <div className="text-center p-4 bg-green-50 rounded-lg">
+                  <div className="text-2xl font-bold text-green-600">1,247</div>
+                  <div className="text-sm text-green-700">Students</div>
+                </div>
+                <div className="text-center p-4 bg-purple-50 rounded-lg">
+                  <div className="text-2xl font-bold text-purple-600">15</div>
+                  <div className="text-sm text-purple-700">Admin Users</div>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <Button variant="outline">
+                  Manage Teachers
+                </Button>
+                <Button variant="outline">
+                  Manage Students
+                </Button>
+                <Button variant="outline">
+                  User Roles & Permissions
+                </Button>
+              </div>
             </CardContent>
           </Card>
 
@@ -201,10 +349,10 @@ const Settings = () => {
             <CardHeader>
               <div className="flex items-center space-x-2">
                 <Shield className="h-5 w-5 text-slate-600" />
-                <CardTitle>Security</CardTitle>
+                <CardTitle>Security & Privacy</CardTitle>
               </div>
               <CardDescription>
-                Manage your account security settings and password.
+                Manage your account security and data privacy settings.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -215,12 +363,15 @@ const Settings = () => {
                 Enable Two-Factor Authentication
               </Button>
               <Button variant="outline">
-                Download Account Data
+                Download School Data
+              </Button>
+              <Button variant="outline">
+                Privacy Settings
               </Button>
             </CardContent>
           </Card>
 
-          {/* Billing Settings */}
+          {/* Billing & Subscription */}
           <Card>
             <CardHeader>
               <div className="flex items-center space-x-2">
@@ -235,18 +386,24 @@ const Settings = () => {
               <div className="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
                 <div>
                   <p className="font-medium">Professional Plan</p>
-                  <p className="text-sm text-slate-600">$19/month • Next billing: June 30, 2024</p>
+                  <p className="text-sm text-slate-600">$99/month • Next billing: July 15, 2024</p>
+                  <p className="text-sm text-slate-500">Up to 500 students</p>
                 </div>
                 <Button variant="outline" onClick={() => navigate('/pricing')}>
                   Manage Plan
                 </Button>
               </div>
-              <Button variant="outline">
-                Update Payment Method
-              </Button>
-              <Button variant="outline">
-                Download Invoices
-              </Button>
+              <div className="flex gap-3">
+                <Button variant="outline">
+                  Update Payment Method
+                </Button>
+                <Button variant="outline">
+                  Download Invoices
+                </Button>
+                <Button variant="outline">
+                  Usage Reports
+                </Button>
+              </div>
             </CardContent>
           </Card>
 
@@ -258,15 +415,18 @@ const Settings = () => {
                 <CardTitle className="text-red-600">Danger Zone</CardTitle>
               </div>
               <CardDescription>
-                Irreversible actions that will affect your account.
+                Irreversible actions that will affect your school's data.
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <Button variant="destructive">
-                Delete Account
+            <CardContent className="space-y-4">
+              <Button variant="outline" className="border-red-200 text-red-600 hover:bg-red-50">
+                Export All Data
               </Button>
-              <p className="text-sm text-slate-500 mt-2">
-                This action cannot be undone. All your data will be permanently deleted.
+              <Button variant="destructive">
+                Delete School Account
+              </Button>
+              <p className="text-sm text-slate-500">
+                This action cannot be undone. All student data, records, and settings will be permanently deleted.
               </p>
             </CardContent>
           </Card>
