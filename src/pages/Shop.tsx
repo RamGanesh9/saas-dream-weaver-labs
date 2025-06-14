@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -63,7 +64,7 @@ const Shop = () => {
       category: "sweatshirts",
       isNew: false,
       isOnSale: true,
-      colors: ['purple', 'pink', 'white'],
+      colors: ['gold', 'black', 'white'],
       sizes: ['S', 'M', 'L', 'XL']
     },
     {
@@ -89,7 +90,7 @@ const Shop = () => {
       category: "tanks",
       isNew: true,
       isOnSale: false,
-      colors: ['white', 'black', 'gray'],
+      colors: ['white', 'black', 'gold'],
       sizes: ['S', 'M', 'L', 'XL']
     }
   ];
@@ -109,17 +110,17 @@ const Shop = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-emerald-50 to-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-yellow-50 to-amber-50">
       {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50">
+      <nav className="bg-black/95 backdrop-blur-sm shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
               <Link to="/" className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
-                  <Zap className="h-6 w-6 text-white" />
+                <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <Zap className="h-6 w-6 text-black" />
                 </div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600 bg-clip-text text-transparent">
+                <span className="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-600 bg-clip-text text-transparent">
                   THE GODS
                 </span>
               </Link>
@@ -129,14 +130,14 @@ const Shop = () => {
               <Button
                 onClick={() => window.history.back()}
                 variant="ghost"
-                className="text-slate-600 hover:text-emerald-600"
+                className="text-white hover:text-yellow-400"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back
               </Button>
               <Button
                 variant="outline"
-                className="border-emerald-300 text-emerald-600 hover:bg-emerald-50"
+                className="border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black"
               >
                 <ShoppingBag className="h-4 w-4 mr-2" />
                 Cart (0)
@@ -154,14 +155,14 @@ const Shop = () => {
         </div>
 
         {/* Search and Filters */}
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+        <div className="bg-white rounded-lg shadow-lg p-6 mb-8 border border-yellow-200">
           <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
             {/* Search */}
             <div className="relative flex-1 max-w-md">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-4 w-4" />
               <Input 
                 placeholder="Search products..." 
-                className="pl-10 border-slate-300 focus:border-emerald-500"
+                className="pl-10 border-slate-300 focus:border-yellow-500"
               />
             </div>
 
@@ -171,7 +172,7 @@ const Shop = () => {
               <select 
                 value={filterCategory}
                 onChange={(e) => setFilterCategory(e.target.value)}
-                className="px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
               >
                 {categories.map(category => (
                   <option key={category.id} value={category.id}>{category.name}</option>
@@ -185,7 +186,7 @@ const Shop = () => {
               <select 
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
               >
                 <option value="featured">Featured</option>
                 <option value="price-low">Price: Low to High</option>
@@ -201,7 +202,7 @@ const Shop = () => {
                 variant={viewMode === 'grid' ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setViewMode('grid')}
-                className="bg-emerald-600 hover:bg-emerald-700"
+                className="bg-yellow-500 hover:bg-yellow-600 text-black"
               >
                 <Grid className="h-4 w-4" />
               </Button>
@@ -209,7 +210,7 @@ const Shop = () => {
                 variant={viewMode === 'list' ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setViewMode('list')}
-                className="bg-emerald-600 hover:bg-emerald-700"
+                className="bg-yellow-500 hover:bg-yellow-600 text-black"
               >
                 <List className="h-4 w-4" />
               </Button>
@@ -224,7 +225,7 @@ const Shop = () => {
             : 'grid-cols-1'
         }`}>
           {filteredProducts.map((product) => (
-            <Card key={product.id} className="group cursor-pointer hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden">
+            <Card key={product.id} className="group cursor-pointer hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden bg-white">
               <div className="relative">
                 <img 
                   src={product.image} 
@@ -237,12 +238,12 @@ const Shop = () => {
                 {/* Badges */}
                 <div className="absolute top-4 left-4 flex flex-col gap-2">
                   {product.isNew && (
-                    <div className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="bg-gradient-to-r from-yellow-400 to-amber-500 text-black px-3 py-1 rounded-full text-sm font-medium">
                       New
                     </div>
                   )}
                   {product.isOnSale && (
-                    <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="bg-gradient-to-r from-amber-600 to-yellow-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                       Sale
                     </div>
                   )}
@@ -254,7 +255,7 @@ const Shop = () => {
                     <Button size="sm" className="bg-white text-slate-900 hover:bg-slate-100">
                       Quick View
                     </Button>
-                    <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700">
+                    <Button size="sm" className="bg-yellow-500 hover:bg-yellow-600 text-black">
                       <ShoppingBag className="h-4 w-4" />
                     </Button>
                   </div>
@@ -262,7 +263,7 @@ const Shop = () => {
               </div>
 
               <CardContent className="p-6">
-                <h3 className="font-bold text-slate-800 mb-2 group-hover:text-emerald-600 transition-colors">
+                <h3 className="font-bold text-slate-800 mb-2 group-hover:text-yellow-600 transition-colors">
                   {product.name}
                 </h3>
                 
@@ -276,7 +277,7 @@ const Shop = () => {
 
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl font-bold text-emerald-600">${product.price}</span>
+                    <span className="text-2xl font-bold text-yellow-600">${product.price}</span>
                     {product.originalPrice && (
                       <span className="text-sm text-slate-500 line-through">${product.originalPrice}</span>
                     )}
@@ -295,8 +296,7 @@ const Shop = () => {
                           color === 'white' ? 'bg-white' :
                           color === 'gray' ? 'bg-gray-400' :
                           color === 'navy' ? 'bg-blue-900' :
-                          color === 'purple' ? 'bg-purple-500' :
-                          color === 'pink' ? 'bg-pink-500' :
+                          color === 'gold' ? 'bg-yellow-400' :
                           color === 'brown' ? 'bg-amber-700' :
                           color === 'blue' ? 'bg-blue-500' :
                           'bg-gray-300'
@@ -306,7 +306,7 @@ const Shop = () => {
                   </div>
                 </div>
 
-                <Button className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700">
+                <Button className="w-full bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-black font-semibold">
                   Add to Cart
                 </Button>
               </CardContent>
@@ -319,7 +319,7 @@ const Shop = () => {
           <Button 
             size="lg" 
             variant="outline"
-            className="border-emerald-300 text-emerald-600 hover:bg-emerald-50"
+            className="border-yellow-400 text-yellow-600 hover:bg-yellow-50"
           >
             Load More Products
           </Button>
